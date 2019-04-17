@@ -1,0 +1,136 @@
+/*Kinetic light Midterm project code
+using Arduino Mega to control multiple Halogen Lights
+*/
+
+// These constants won't change. They're used to give names to the pins used:
+const int Pin1 = 8;
+const int Pin2 = 9;
+const int Pin3 = 10;
+const int Pin4 = 11;
+const int Pin5 = 12;
+
+int caseNumber;
+int d=10;
+int m=2;
+
+void setup() {
+  Serial.begin(9600);
+  // set pins 2 through 13 as outputs:   
+    pinMode(Pin1, OUTPUT);
+    pinMode(Pin2, OUTPUT);
+    pinMode(Pin3, OUTPUT);
+    pinMode(Pin4, OUTPUT);
+    pinMode(Pin5, OUTPUT);
+}
+
+void loop() {
+  caseNumber=random(1,9);
+  Serial.println(caseNumber);
+  switch (caseNumber) {
+    case 1:
+    for (int brightness = 0; brightness < 255; brightness++) {
+      analogWrite(Pin1, brightness);
+      analogWrite(Pin5, brightness);
+      delay(10);
+    }
+    
+    for (int brightness = 255; brightness >= 0; brightness-=m) {
+      analogWrite(Pin1, brightness);
+      analogWrite(Pin5, brightness);
+      delay(10);
+    } 
+      break;
+    case 2:
+    for (int brightness = 0; brightness < 255; brightness++) {
+//      analogWrite(Pin1, brightness);
+      analogWrite(Pin3, brightness);
+      analogWrite(Pin5, brightness);
+      delay(10);
+    }
+    
+    for (int brightness = 255; brightness >= 0; brightness-=m) {
+//      analogWrite(Pin1, brightness);
+      analogWrite(Pin3, brightness);
+      analogWrite(Pin5, brightness);
+      delay(10);
+    } 
+      break;
+    case 3:
+      for (int brightness = 0; brightness < 255; brightness++) {
+      analogWrite(Pin5, brightness);
+      delay(d);
+    }
+    
+    for (int brightness = 255; brightness >= 0; brightness-=m) {
+      analogWrite(Pin5, brightness);
+      delay(d);
+    } 
+         break;
+    case 4:
+    for (int brightness = 0; brightness < 255; brightness++) {
+      analogWrite(Pin4, brightness);
+      delay(d);
+    }
+    
+    for (int brightness = 255; brightness >= 0; brightness-=m) {
+      analogWrite(Pin4, brightness);
+      delay(d);
+    } 
+         break;
+    case 5:
+    for (int brightness = 0; brightness < 255; brightness++) {
+      analogWrite(Pin3, brightness);
+      delay(d);
+    }
+    
+    for (int brightness = 255; brightness >= 0; brightness-=m) {
+      analogWrite(Pin3, brightness);
+      delay(d);
+    } 
+      break;
+    case 6:
+    for (int brightness = 0; brightness < 255; brightness++) {
+      analogWrite(Pin2, brightness);
+      delay(d);
+    }
+    
+    for (int brightness = 255; brightness >= 0; brightness-=m) {
+      analogWrite(Pin2, brightness);
+      delay(d);
+    } 
+         break;
+        case 7:
+    for (int brightness = 0; brightness < 255; brightness++) {
+      analogWrite(Pin1, brightness);
+      delay(d);
+    }
+    
+    for (int brightness = 255; brightness >= 0; brightness-=m) {
+      analogWrite(Pin1, brightness);
+      delay(d);
+    } 
+         break;
+        case 8:
+    for (int brightness = 0; brightness < 255; brightness++) {
+      analogWrite(Pin1, brightness);
+      analogWrite(Pin3, brightness);
+      delay(10);
+    }
+    
+    for (int brightness = 255; brightness >= 0; brightness-=m) {
+      analogWrite(Pin1, brightness);
+      analogWrite(Pin3, brightness);
+      delay(10);
+    } 
+         break;
+
+      default:
+      int brightness=0;
+      analogWrite(Pin1, brightness);
+      analogWrite(Pin2, brightness);
+      analogWrite(Pin3, brightness);
+      analogWrite(Pin4, brightness);
+      analogWrite(Pin5, brightness);
+  }
+  
+}
